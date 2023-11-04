@@ -1,3 +1,5 @@
+use std::io;
+
 fn main() {
     // Mutable
     let mut x = 5;
@@ -65,4 +67,46 @@ fn main() {
     let one = tup.2;
 
     println!("Get element value from tup: {five_hundred}, {six_point_four}, {one}");
+
+    // arrays in Rust have a fixed length
+    let a = [1, 2, 3, 4, 5];
+    let a: [i32; 5] = [1, 2, 3, 4, 5];
+    let a = [3; 5]; // initialize an array to contain the same value
+    println!(
+        "The value of array a is: {}, {}, {}, {}, {}",
+        a[0], a[1], a[2], a[3], a[4]
+    );
+
+    let a = [1, 2, 3, 4, 5];
+    println!("Please enter an array index.");
+
+    let mut index = String::new();
+
+    io::stdin()
+        .read_line(&mut index)
+        .expect("Failed to read line");
+
+    let index: usize = index
+        .trim()
+        .parse()
+        .expect("Index entered was not a number");
+
+    let element = a[index];
+
+    println!("The value of the element at index {index} is: {element}");
+
+    let months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ];
 }
