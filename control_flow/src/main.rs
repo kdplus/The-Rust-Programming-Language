@@ -36,4 +36,78 @@ fn main() {
     // let number = if condition { 5 } else { "six" }; will leads to error
 
     println!("The value of number is: {number}");
+
+    // returning values from loops
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("The result is {result}");
+
+    // Loop Labels to Disambiguate Between Multiple Loops
+    // Loop labels must begin with a single quote
+    let mut count = 0;
+    'counting_up: loop {
+        println!("count = {count}");
+        let mut remaining = 10;
+
+        loop {
+            println!("remaining = {remaining}");
+            if remaining == 9 {
+                break;
+            }
+            if count == 2 {
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
+
+        count += 1;
+    }
+    println!("End count = {count}");
+
+    // Conditional Loops with while
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{number}!");
+
+        number -= 1;
+    }
+
+    println!("LIFTOFF!!!");
+
+    // Looping Through a Collection with for
+    let a = [10, 20, 30, 40, 50];
+    let mut index = 0;
+
+    while index < 5 {
+        println!("the value is: {}", a[index]);
+
+        index += 1;
+    }
+
+    // while is error prone in this case due to the size of array may be modified
+    // It’s also slow, because the compiler adds runtime code to perform the conditional check
+    // of whether the index is within the bounds of the array on every iteration through the loop.
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a {
+        println!("the value is: {element}");
+    }
+
+    // use for to countdown
+    // The way to do that would be to use a Range, provided by the standard library,
+    // which generates all numbers in sequence starting from one number and ending before another number
+    // it's left inclusive and right exclusive: (start..end) => [start, end)
+    for number in (1..4).rev() {
+        println!("{number}!");
+    }
+    println!("LIFTOFF!!!");
 }
