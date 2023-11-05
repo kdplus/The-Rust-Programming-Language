@@ -1,5 +1,5 @@
 [package]
-name = "variables"
+name = "ch03_03_functions"
 version = "0.1.0"
 edition = "2021"
 
