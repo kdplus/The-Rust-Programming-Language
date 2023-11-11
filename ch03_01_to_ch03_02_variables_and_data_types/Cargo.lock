@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "variables_and_data_types"
+name = "ch03_01_to_ch03_02_variables_and_data_types"
 version = "0.1.0"
